@@ -1,0 +1,11 @@
+how network policy work?
+
+kubernetes handles traffic with no policy as :
+
+default state: no policy
+Every pod can talk to every other pod freely
+No restrictions whatsoever
+
+
+
+Two NetworkPolicies work together on the backend pod: the first denies all ingress by default, switching the pod from open to closed. The second creates a single exception — only pods carrying the label app: frontend can reach port 80. All other pods, regardless of their name or namespace, are silently dropped at the network level before they ever reach the backend
